@@ -1,0 +1,3 @@
+http://stackoverflow.com/questions/2460243/using-php-to-populate-a-select-select
+
+http://www.w3schools.com/php/php_ajax_database.asp
