@@ -40,12 +40,23 @@ function showUser(str) {
                     <fieldset>
                         <label for="name">Your name</label>
                         <input id="name" type="text" placeholder="Your Name">
-
+                        
 						<label for="state">State</label>
 				        <select id="state">
-				            <option>AL</option>
-				            <option>CA</option>
-				            <option>IL</option>
+						<?php 
+						header("Content-Type: text/html; charset=utf-8");
+						mysql_connect('localhost','root','usbw');
+						mysql_query("SET NAMES 'utf8'");
+						mysql_select_db("b32_15818905_757");
+						$result=mysql_query("SELECT * FROM `students`");
+						//$myResult=mysql_query("SELECT * FROM `students` WHERE 1");
+						$sql=mysql_query("SELECT cID, cName FROM students");
+						while($row=mysql_fetch_assoc($sql)){
+							echo '<option value="'.$row['cID'].'">'.$row['cName'].'</option>';
+							}
+						?>
+
+
 				        </select>
                         
                         <label for="state2">State2</label>

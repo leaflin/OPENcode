@@ -10,8 +10,9 @@ $result=mysql_query("SELECT * FROM `students`");
 //$myResult=mysql_query("SELECT * FROM `students` WHERE 1");
 $sql=mysql_query("SELECT * FROM students WHERE cID ='".$q."'");
 while($row=mysql_fetch_assoc($sql)){
-	
+	echo $row['cID'];
 	echo $row['cName'];
+	echo $row['cEmail'];
 	
 	}
 

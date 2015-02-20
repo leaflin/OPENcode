@@ -18,20 +18,35 @@ function showUser(str) {
                 document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
             }
         }
-        xmlhttp.open("GET","p.php?q="+str,true);
+        xmlhttp.open("GET","W3c_db.php?q="+str,true);
         xmlhttp.send();
     }
 }
 </script>
 </head>
 <body>
-<----!using php loading <select> option value </---->
+
 <form>
   <select name="users" onchange="showUser(this.value)">
-    <option value="">Select a person:</option>
-    <option value="1">Peter Griffin</option>
-    <option value="2">Lois Griffin</option>
-    </select>
+  <option value="choose"></option>
+  <?php
+						header("Content-Type: text/html; charset=utf-8");
+						mysql_connect('localhost','root','usbw');
+						mysql_query("SET NAMES 'utf8'");
+						mysql_select_db("b32_15818905_757");
+						$result=mysql_query("SELECT * FROM `students`");
+						//$myResult=mysql_query("SELECT * FROM `students` WHERE 1");
+						$sql=mysql_query("SELECT cID, cName FROM students");
+						while($row=mysql_fetch_assoc($sql)){
+							echo '<option value="'.$row['cID'].'">'.$row['cName'].'</option>';
+							}
+  
+  
+  
+  ?>
+
+
+  </select>
 </form>
 <br>
 <div id="txtHint"><b>Person info will be listed here...</b></div>

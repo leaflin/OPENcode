@@ -1,6 +1,5 @@
 <?php
 
-
 class  drink{
 
 	public $name;
